@@ -1,0 +1,17 @@
+<%= form_with url: '/static_pages', method: 'get', local: true do %>
+  <%= label_tag "Flickr ID" %>
+  <%= text_field_tag :flickr_id %>
+
+  <%= submit_tag "Search" %>
+<% end %>
+
+<% if @photos.any? %>
+  <ul id="photos">
+    <% @photos.each do |photo| %>
+      <li>
+        <%= image_tag FlickRaw.url(photo) %>
+      </li>
+    <% end %>
+  </ul>
+
+<% end %>
